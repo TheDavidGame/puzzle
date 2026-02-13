@@ -151,12 +151,10 @@
   transition: color 0.15s ease, transform 0.15s ease;
   display: flex;
   align-items: baseline;
-  justify-content: flex-end;
   gap: 12px;
   user-select: none;
-  text-align: right;
+  width: 100%;
 }
-
 .track-item:hover:not(.disabled) {
   color: #333;
   transform: translateX(4px);
@@ -173,10 +171,18 @@
 
 .track-number {
   min-width: 40px;
+  text-align: right;
+  flex-shrink: 0;
 }
 
 .track-title {
   line-height: 90%;
+  text-align: left;
+  flex: 1;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 @keyframes fade-in {
