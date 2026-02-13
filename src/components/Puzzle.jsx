@@ -42,9 +42,8 @@ function createSolvablePuzzle(gridSize) {
   return tiles
 }
 
-export default function Puzzle({ imageUrl, gridSize }) {
+export default function Puzzle({ imageUrl, gridSize, onWin }) {
   const [tiles, setTiles] = useState(() => createSolvablePuzzle(gridSize))
-  const [won, setWon] = useState(false)
   const [imageSize, setImageSize] = useState(480)
 
   useEffect(() => {
@@ -75,7 +74,6 @@ export default function Puzzle({ imageUrl, gridSize }) {
 
   const handleTileClick = useCallback(
     (index) => {
-      if (won) return
       if (tiles[index] === null) return
 
       const emptyIndex = tiles.indexOf(null)
@@ -87,35 +85,25 @@ export default function Puzzle({ imageUrl, gridSize }) {
       setTiles(newTiles)
 
       if (isWon(newTiles)) {
-        setWon(true)
+        onWin()
       }
     },
-    [tiles, won, getNeighbors]
+    [tiles, getNeighbors, onWin]
   )
 
   const handleShuffle = useCallback(() => {
     setTiles(createSolvablePuzzle(gridSize))
-    setWon(false)
   }, [gridSize])
 
   const handleSolve = useCallback(() => {
-    const total = gridSize * gridSize
-    const solved = [...Array.from({ length: total - 1 }, (_, i) => i), null]
-    setTiles(solved)
-    setWon(true)
-  }, [gridSize])
+    onWin()
+  }, [onWin])
 
   return (
     <div className="puzzle-container">
       <div className="puzzle-controls">
         <button onClick={handleShuffle}>Перемешать</button>
       </div>
-
-      {won && (
-        <div className="win-banner">
-          Поздравляю! Пазл собран!
-        </div>
-      )}
 
       <div
         className="puzzle-board"
@@ -135,7 +123,7 @@ export default function Puzzle({ imageUrl, gridSize }) {
           return (
             <div
               key={tile}
-              className={`puzzle-tile ${won ? 'won' : ''}`}
+              className="puzzle-tile"
               onClick={() => handleTileClick(index)}
               style={{
                 backgroundImage: `url(${imageUrl})`,
@@ -150,7 +138,7 @@ export default function Puzzle({ imageUrl, gridSize }) {
       </div>
 
       <div className="puzzle-controls">
-        <button className="solve-btn" onClick={handleSolve} disabled={won}>
+        <button className="solve-btn" onClick={handleSolve}>
           Решить
         </button>
       </div>

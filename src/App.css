@@ -49,30 +49,16 @@
 .puzzle-tile {
   position: relative;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.puzzle-tile:hover:not(.empty):not(.won) {
+.puzzle-tile:hover:not(.empty) {
   opacity: 0.85;
 }
 
 .puzzle-tile.empty {
   background: #1a1a2e;
   cursor: default;
-}
-
-.puzzle-tile.won {
-  cursor: default;
-}
-
-.win-banner {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 12px 28px;
-  border-radius: 12px;
-  font-size: 1.2em;
-  font-weight: 600;
-  animation: pop-in 0.4s ease;
 }
 
 .solve-btn {
@@ -83,22 +69,60 @@
   font-size: 1em;
 }
 
-.solve-btn:hover:not(:disabled) {
+.solve-btn:hover {
   opacity: 0.9;
 }
 
-.solve-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+/* Player */
+.player {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  height: 50%;
+  animation: fade-in 0.4s ease;
 }
 
-@keyframes pop-in {
+.player-left {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-right {
+  flex: 1;
+}
+
+.player-icon {
+  width: 70%;
+  height: auto;
+  max-height: 800px;
+  object-fit: contain;
+  user-select: none;
+  display: block;
+}
+
+.play-btn {
+  margin-top: 16px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes fade-in {
   0% {
-    transform: scale(0.8);
     opacity: 0;
+    transform: translateY(10px);
   }
   100% {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
