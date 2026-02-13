@@ -102,7 +102,7 @@ export default function Puzzle({ imageUrl, gridSize, onWin }) {
   return (
     <div className="puzzle-container">
       <div className="puzzle-controls">
-        <button onClick={handleShuffle}>Перемешать</button>
+        <button onClick={handleShuffle}>Заново</button>
       </div>
 
       <div
@@ -137,11 +137,11 @@ export default function Puzzle({ imageUrl, gridSize, onWin }) {
         })}
       </div>
 
-      <div className="puzzle-controls">
+      {/* <div className="puzzle-controls">
         <button className="solve-btn" onClick={handleSolve}>
           Решить
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }
