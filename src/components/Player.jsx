@@ -4,19 +4,24 @@ import rightBg from '../assets/right.svg'
 import playIcon from '../assets/play.svg'
 import stopIcon from '../assets/stop.svg'
 
-import track1 from '../music/1.mp3'
-import track2 from '../music/2.mp3'
-import track3 from '../music/3.mp3'
+import track1 from '../music/1.wav'
+import track2 from '../music/2.wav'
+import track3 from '../music/3.wav'
+import track4 from '../music/4.wav'
+import track5 from '../music/5.wav'
+import track6 from '../music/6.wav'
+import track7 from '../music/7.wav'
+import track8 from '../music/8.wav'
 
 const tracks = [
-  { id: 1, title: 'ПОХУЙ', src: track1 },
-  { id: 2, title: 'АССОРТИ', src: track2 },
-  { id: 3, title: 'ТЫ И Я', src: track3 },
-  { id: 4, title: 'КАЙФУЛИ', src: null },
-  { id: 5, title: 'ЛЕТО', src: null },
-  { id: 6, title: 'ГРУСТЬ', src: null },
-  { id: 7, title: 'ВЕЧЕР', src: null },
-  { id: 8, title: 'ФИНАЛ', src: null },
+  { id: 1, title: 'СКУЧНО', src: track1 },
+  { id: 2, title: 'КТО БЫ ЧТО НИ ГОВОРИЛ', src: track2 },
+  { id: 3, title: 'НИЧЕГО', src: track3 },
+  { id: 4, title: 'ЖДУ ТЕПЛА', src: track4 },
+  { id: 5, title: 'НА ДНЕ', src: track5 },
+  { id: 6, title: 'ПРОГУЛКА ПЕРЕД СНОМ', src: track6 },
+  { id: 7, title: 'СОН', src: track7 },
+  { id: 8, title: 'КРОВЬ', src: track8 },
 ]
 
 export default function Player() {
