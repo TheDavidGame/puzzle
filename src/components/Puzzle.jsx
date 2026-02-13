@@ -19,10 +19,12 @@ function isSolvable(tiles, gridSize) {
   }
   const emptyRow = Math.floor(tiles.indexOf(null) / gridSize)
   const emptyFromBottom = gridSize - emptyRow
+  
   if (gridSize % 2 === 1) {
     return inversions % 2 === 0
   }
-  return (inversions + emptyFromBottom) % 2 === 0
+  
+  return (inversions + emptyFromBottom) % 2 === 1
 }
 
 function isWon(tiles) {
@@ -116,13 +118,13 @@ export default function Puzzle({ imageUrl, gridSize, onWin }) {
       >
         {tiles.map((tile, index) => {
           if (tile === null) {
-            return <div key="empty" className="puzzle-tile empty" style={{ width: tileSize, height: tileSize }} />
+            return <div key={`empty-${index}`} className="puzzle-tile empty" style={{ width: tileSize, height: tileSize }} />
           }
           const origRow = Math.floor(tile / gridSize)
           const origCol = tile % gridSize
           return (
             <div
-              key={tile}
+              key={`tile-${tile}-${index}`}
               className="puzzle-tile"
               onClick={() => handleTileClick(index)}
               style={{
