@@ -13,9 +13,12 @@ function App() {
 
   return (
     <div className="app">
-      <p className="subtitle">Собери картинку из кусочков</p>
       {!won ? (
+        <>
+        <p className="subtitle">Собери картинку из кусочков</p>
         <Puzzle imageUrl={puzzleImage} gridSize={4} onWin={handleWin} />
+        </>
+        
       ) : (
         <Player />
       )}
