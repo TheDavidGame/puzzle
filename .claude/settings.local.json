@@ -4,7 +4,9 @@
       "Bash(npm create:*)",
       "Bash(npm install)",
       "Bash(ls:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "mcp__tavily-mcp__tavily_search",
+      "Bash(curl:*)"
     ]
   }
 }
